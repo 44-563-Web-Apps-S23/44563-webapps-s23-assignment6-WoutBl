@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversions</title>
+</head>
+
+<body>
+
+    <h2>Wout Blomme shows currency conversions</h2>
+
+    <form>
+        <label for="Base_Amount">Enter base amount </label>
+        <input type="number" id="baseAmount" name="Base_Amount" value=50> <br>
+
+        <label for="Conversion_Rate">Enter the conversion rate </label>
+        <input type="number" id="ConversionRate" name="Conversion_Rate" value="35"> <br>
+
+        <input type="button" onclick="Convert()" value="Show conversions">
+    </form>
+
+
+    <p id="result"></p>
+
+    <script>
+        var convertBase = 0
+        var convertRate = 0
+        function Convert() {
+            console.log("Getting form values")
+            base = document.getElementById("baseAmount").value
+            rate = document.getElementById("ConversionRate").value
+
+            var toShow = ""
+            for (let i = 0; i < 5; i++) {
+                switch (i) {
+                    case 0:
+                        convertBase = base
+                        convertRate = rate * base
+                        break;
+                    case 1:
+                        convertBase = base * 2
+                        convertRate = rate * base * 2
+                        break;
+                    case 2:
+                        convertBase = base * 4
+                        convertRate = rate * base * 4
+                        break;
+                    case 3:
+                        convertBase = base * 8
+                        convertRate = rate * base * 8
+                        break;
+                    case 4:
+                        convertBase = base * 16
+                        convertRate = rate * base * 16
+                        break;
+                }
+                toShow += convertBase + " is " + convertRate + ";"
+
+            }
+            result = document.getElementById("result")
+            result.innerHTML = toShow
+
+        }
+    </script>
+
+</body>
+
+</html>

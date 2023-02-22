@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painter entry</title>
+</head>
+
+<body>
+
+    <h2>Getting input</h2>
+
+    <form>
+        <label for="name">The hidden painter name: </label>
+        <input type="password" id="painter_name" name="name" value=Monet> <br>
+
+        <label for="guessing">Guess the painter </label>
+        <input type="text" id="painter_Guess" name="guessing"> <br>
+
+        <input type="button" onclick="CheckPainter()" value="Check the guess">
+        <div>
+            <img src="img/Begonia.jpg" id="img" onclick="Selectimage()" alt="Begonia" width="100" height="100">
+        </div>
+    </form>
+    <p id="result"></p>
+    <script>
+        var good = 0;
+        var oops = 0;
+        var useImage = 1;
+        function CheckPainter() {
+
+            console.log("Getting form values")
+            name = document.getElementById("painter_name").value
+            guess = document.getElementById("painter_Guess").value
+
+
+            result = document.getElementById("result")
+            if (name == guess) {
+                confirmed = confirm("You got it Right!")
+                good = good + 1;
+            } else {
+                confirmed = confirm("You got it wrong")
+                oops = oops + 1;
+            }
+            result.innerHTML = "good: " + good + " oops: " + oops
+        }
+        function Selectimage() {
+            console.log(useImage);
+            if (useImage < 3) {
+                useImage += 1;
+            } else {
+                useImage = 1;
+            }
+
+            img = document.getElementById("img")
+            switch (useImage) {
+                case 1:
+                    img.src = "img/Begonia.jpg"
+                    break;
+                case 2:
+                    img.src = "img/Olea.jpg"
+                    break;
+                case 3:
+                    img.src = "img/Umbrella_plant.jpg"
+                    break;
+            }
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>
