@@ -20,9 +20,18 @@
 
 
     <p id="result">This text will be replaced </p>
+    <br>
+    <form>
+        <label for="size">Enter the size</label>
+        <input type="text" id="size" name="size" value=Size> <br>
 
+        <label for="price">Enter price</label>
+        <input type="text" id="price" name="price"> <br>
 
-
+        <input type="button" onclick="updateBox()" value="Update the box">
+    </form>
+    <p id="result02">This text will be replaced </p>
+    <br>
     <script>
         var my_candy_box = {};
         function selectBox() {
@@ -31,7 +40,7 @@
             nuts = document.getElementById("nuts")
             chewy = document.getElementById("chewy")
             console.log(dark.checked, nuts.checked, chewy.checked);
-            my_candy_box = { Dark: dark.checked, Nuts: nuts.checked, Chewy: chewy.checked }
+            my_candy_box = { Dark: dark.checked, Nuts: nuts.checked, Chewy: chewy.checked, price: "", size: "" }
             console.log(my_candy_box)
             console.log(my_candy_box.Dark)
 
@@ -46,8 +55,33 @@
             out.innerHTML += "Chewy: "
             out.innerHTML += my_candy_box.Chewy
 
-            my_candy_box = {}
+
         }
+        function updateBox() {
+            size = document.getElementById("size")
+            price = document.getElementById("price")
+            console.log(size.value)
+            console.log(price.value)
+            my_candy_box.price = price.value
+            my_candy_box.size = size.value
+            console.log(my_candy_box)
+            out = document.getElementById("result02")
+            out.innerHTML = "Dark: "
+            out.innerHTML += my_candy_box.Dark
+            out.innerHTML += "<br>"
+            out.innerHTML += "Nuts: "
+            out.innerHTML += my_candy_box.Nuts
+            out.innerHTML += "<br>"
+            out.innerHTML += "Chewy: "
+            out.innerHTML += my_candy_box.Chewy
+            out.innerHTML += "<br>"
+            out.innerHTML += "Price: "
+            out.innerHTML += my_candy_box.price
+            out.innerHTML += "<br>"
+            out.innerHTML += "Size: "
+            out.innerHTML += my_candy_box.size
+        }
+
     </script>
 
 </body>
