@@ -25,6 +25,21 @@
 
     <p id="result"></p>
 
+    <form>
+        <input type="radio" id="Mean" onclick="ChoosOp()" value="Mean">
+        <label for="Mean">average</label></br>
+
+        <input type="radio" id="Max" onclick="ChoosOp()" value="Maximum">
+        <label for="Max">Max</label></br>
+
+        <input type="radio" id="Min" onclick="ChoosOp()" value="Minimum">
+        <label for="Min">Min</label></br>
+
+
+    </form>
+
+    <p id="Result02"></p>
+
     <script>
         var convertBase = 0
         var convertRate = 0
@@ -63,6 +78,31 @@
             result = document.getElementById("result")
             result.innerHTML = toShow
 
+        }
+        function ChoosOp() {
+            console.log("Getting input")
+            Mean = document.getElementById("Mean")
+            Max = document.getElementById("Max")
+            Min = document.getElementById("Min")
+
+            console.log(Mean.checked, Max.checked, Min.checked)
+            out = document.getElementById("Result02")
+            if (Mean.checked == true) {
+                console.log("Mean")
+                out.innerHTML = "Mean is clicked"
+                Max.checked = false
+                Min.checked = false
+            } else if (Max.checked == true) {
+                console.log("Max")
+                out.innerHTML = "Max is clicked"
+                Mean.checked = false
+                Min.checked = false
+            } else if (Min.checked == true) {
+                console.log("Min")
+                out.innerHTML = "Min is clicked"
+                Mean.checked = false
+                Max.checked = false
+            }
         }
     </script>
 

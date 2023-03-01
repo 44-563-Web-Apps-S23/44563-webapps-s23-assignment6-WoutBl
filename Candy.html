@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>Wout Blomme</h2>
+    <h3>Chooses candy</h3>
+
+    <form>
+        <label for="dark">Dark Chocolate</label>
+        <input type="checkbox" id="dark" name="dark" value="true"> <br>
+
+        <label for="nuts">Nuts</label>
+        <input type="checkbox" id="nuts" name="nuts" value="true"> <br>
+
+        <label for="chewy">Chewy</label>
+        <input type="checkbox" id="chewy" name="chewy"> <br>
+        <input type="button" onclick="selectBox()" value="Select Candy">
+    </form>
+
+
+    <p id="result">This text will be replaced </p>
+
+
+
+    <script>
+        var my_candy_box = {};
+        function selectBox() {
+            console.log("button clicked");
+            dark = document.getElementById("dark")
+            nuts = document.getElementById("nuts")
+            chewy = document.getElementById("chewy")
+            console.log(dark.checked, nuts.checked, chewy.checked);
+            my_candy_box = { Dark: dark.checked, Nuts: nuts.checked, Chewy: chewy.checked }
+            console.log(my_candy_box)
+            console.log(my_candy_box.Dark)
+
+
+            out = document.getElementById("result")
+            out.innerHTML = "Dark: "
+            out.innerHTML += my_candy_box.Dark
+            out.innerHTML += "<br>"
+            out.innerHTML += "Nuts: "
+            out.innerHTML += my_candy_box.Nuts
+            out.innerHTML += "<br>"
+            out.innerHTML += "Chewy: "
+            out.innerHTML += my_candy_box.Chewy
+
+            my_candy_box = {}
+        }
+    </script>
+
+</body>
+
+</html>
